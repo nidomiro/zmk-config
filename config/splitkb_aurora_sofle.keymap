@@ -26,10 +26,15 @@
 / {
 
     behaviors {
-        rgb_encoder: rgb_encoder {
+        rgb_brightness_encoder: rgb_brightness_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug RGB_BRD>, <&rgb_ug RGB_BRI>; 
+        };
+        rgb_hue_encoder: rgb_hue_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUD>, <&rgb_ug RGB_HUI>;
         };
     };
 
@@ -52,7 +57,7 @@
                  &kp LSHFT &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET          &mo 2  &kp BSPC &kp RGUI  &kp RALT
             >;
 
-            sensor-bindings = <&rgb_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&rgb_hue_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         lower_layer {
@@ -71,7 +76,7 @@
                             &trans            &trans            &studio_unlock &trans    &trans   &trans    &trans    &kp DEL    &trans    &trans
             >;
 
-            sensor-bindings = <&rgb_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&rgb_brightness_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         raise_layer {
@@ -90,7 +95,7 @@
                  &trans &trans  &trans  &trans    &trans   &trans    &trans      &kp DEL   &trans    &trans
             >;
 
-            sensor-bindings = <&rgb_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&rgb_brightness_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     };
 };
