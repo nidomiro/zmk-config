@@ -3,5 +3,6 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    #uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
-    uses: ./.github/workflows/build-user-config.yml
+    # uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    # uses: ./.github/workflows/build-user-config.yml
+    uses: nidomiro/zmk/.github/workflows/build-user-config.yml@feat/support_act
