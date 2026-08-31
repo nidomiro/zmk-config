@@ -44,15 +44,15 @@
         default_layer {
             display-name = "Default Layer";
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
-// |  TAB   |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
-// |  SHIFT |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
-// |  CTRL  |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//               |SHIFT | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | RALT   | RALT |
+// |  ESC   |  1   |  2   |  3   |  4   |  5   | /*NK*/ |  | /*NK*/|  6   |  7    |  8    |  9   |   0   |   `   |
+// |  TAB   |  Q   |  W   |  E   |  R   |  T   | /*NK*/ |  | /*NK*/|  Y   |  U    |  I    |  O   |   P   |   -   |
+// |  SHIFT |  A   |  S   |  D   |  F   |  G   | /*NK*/ |  | /*NK*/|  H   |  J    |  K    |  L   |   ;   |   '   |
+// |  CTRL  |  Z   |  X   |  C   |  V   |  B   | RGB_TOG|  | PLAY  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+// | /*NK*/ |/*NK*/|SHIFT | ALT  | GUI  |LAYER1|  SPACE |  | ENTER |LAYER2| BSPC  | RALT  | RALT |/*NK*/ |/*NK*/ |
             bindings = <
-&kp ESC   &kp N1 &kp N2    &kp N3   &kp N4   &kp N5                  /* */                   &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp GRAVE
-&kp TAB   &kp Q  &kp W     &kp E    &kp R    &kp T                   /* */                   &kp Y  &kp U    &kp I     &kp O    &kp P    &kp MINUS
-&kp LSHFT &kp A  &kp S     &kp D    &kp F    &kp G                   /* */                   &kp H  &kp J    &kp K     &kp L    &kp SEMI &kp SQT
+&kp ESC   &kp N1 &kp N2    &kp N3   &kp N4   &kp N5 /*NK*/           /* */  /*NK*/           &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp GRAVE
+&kp TAB   &kp Q  &kp W     &kp E    &kp R    &kp T  /*NK*/           /* */  /*NK*/           &kp Y  &kp U    &kp I     &kp O    &kp P    &kp MINUS
+&kp LSHFT &kp A  &kp S     &kp D    &kp F    &kp G  /*NK*/           /* */  /*NK*/           &kp H  &kp J    &kp K     &kp L    &kp SEMI &kp SQT
 &kp LCTRL &kp Z  &kp X     &kp C    &kp V    &kp B  &rgb_ug RGB_TOG  /* */  &kp C_PLAY_PAUSE &kp N  &kp M    &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
 /*NK*/    /*NK*/ &kp LSHFT &kp LALT &kp LGUI &mo 1  &kp SPACE        /* */  &kp RET          &mo 2  &kp BSPC &kp RALT  &kp RALT /*NK*/   /*NK*/
             >;
@@ -60,18 +60,18 @@
             sensor-bindings = <&rgb_hue_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        lower_layer {
-            display-name = "Lower Layer";
+        layer_1 {
+            display-name = "Layer 1";
 // ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
-// |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
-// |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
-// |       |     |     |      | "["  | "]"  |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
-//               |     |      |      |      |        |  |       |      |       |       |      |
+// | GRAVE  | F1   | F2   |  F3  |  F4  |  F5  | /*NK*/ |  | /*NK*/|  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
+// |        |      |      |      |  {   |  <   | /*NK*/ |  | /*NK*/|  >   |  }    |       |      |       |  F12  |
+// |        |  !   |  @   |  #   |  (   |  [   | /*NK*/ |  | /*NK*/|  ]   |  )    |  *    |  (   |   )   |   ~   |
+// |        |      |      |      |  [   |  ]   |        |  |       |      |  -    |  +    |  {   |   }   |  "|"|  |
+// | /*NK*/ |/*NK*/| mo3  |      |      |      |        |  |       | mo3  | DEL   |       |      |/*NK*/ |/*NK*/ |
             bindings = <
-&kp GRAVE   &kp F1              &kp F2              &kp F3              &kp F4          &kp F5                  /* */            &kp F6     &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-&trans      &trans              &trans              &trans              &kp LBRC        &kp LT                  /* */            &kp GT     &kp RBRC    &trans      &trans      &trans      &kp F12
-&trans      &kp EXCL            &kp AT              &kp HASH            &kp LPAR        &kp LBKT                /* */            &kp RBKT   &kp RPAR    &kp STAR    &kp LPAR    &kp RPAR    &kp TILDE
+&kp GRAVE   &kp F1              &kp F2              &kp F3              &kp F4          &kp F5          /*NK*/  /* */  /*NK*/    &kp F6     &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
+&trans      &trans              &trans              &trans              &kp LBRC        &kp LT          /*NK*/  /* */  /*NK*/    &kp GT     &kp RBRC    &trans      &trans      &trans      &kp F12
+&trans      &kp EXCL            &kp AT              &kp HASH            &kp LPAR        &kp LBKT        /*NK*/  /* */  /*NK*/    &kp RBKT   &kp RPAR    &kp STAR    &kp LPAR    &kp RPAR    &kp TILDE
 &trans      &trans              &trans              &trans              &kp LBKT        &kp RBKT        &trans  /* */  &trans    &trans     &kp MINUS   &kp PLUS    &kp LBRC    &kp RBRC    &kp PIPE
 /*NK*/      /*NK*/              &mo 3               &trans              &trans          &trans          &trans  /* */  &trans    &mo 3      &kp DEL     &trans      &trans      /*NK*/      /*NK*/ 
             >;
@@ -79,20 +79,20 @@
             sensor-bindings = <&rgb_brightness_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        raise_layer {
-            display-name = "Raise Layer";
+        layer_2 {
+            display-name = "Layer 2";
 // ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-// |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-// |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-//               |     |      |      |      |        |  |       |      |       |       |      |
+// |        |      |      | PREV |  PP  | NEXT | /*NK*/ |  | /*NK*/|      |       |       |      |       | PSCRN |
+// |        |  1   |  2   |  3   |  4   |  5   | /*NK*/ |  | /*NK*/|  6   |   7   |   8   |  9   |   0   |       |
+// |        |      |      |      |      |      | /*NK*/ |  | /*NK*/|      |   <-  |   v   |  ^   |  ->   |       |
+// |        |      |      |      |      |      |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
+// | /*NK*/ |/*NK*/|      |      |      | mo3  |        |  |       |      | DEL   |       |      |/*NK*/ |/*NK*/ |
             bindings = <
-&trans      &trans  &trans &trans   &trans  &trans              /* */            &trans       &trans    &trans    &trans   &trans    &trans
-&trans      &kp N1  &kp N2 &kp N3   &kp N4  &kp N5              /* */            &kp N6       &kp N7    &kp N8    &kp N9   &kp N0    &trans
-&trans      &trans  &trans &trans   &trans  &trans              /* */            &trans       &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
-&trans      &trans  &trans &trans   &trans  &trans      &trans  /* */  &trans    &kp KP_PLUS  &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
-/*NK*/      /*NK*/  &trans &trans   &trans  &mo 3       &trans  /* */  &trans    &trans       &kp DEL   &trans    &trans   /*NK*/    /*NK*/ 
+&trans      &trans  &trans &kp C_PREV &kp C_PP &kp C_NEXT  /*NK*/  /* */  /*NK*/    &trans       &trans    &trans    &trans   &trans    &kp PSCRN
+&trans      &kp N1  &kp N2 &kp N3     &kp N4   &kp N5      /*NK*/  /* */  /*NK*/    &kp N6       &kp N7    &kp N8    &kp N9   &kp N0    &trans
+&trans      &trans  &trans &trans     &trans   &trans      /*NK*/  /* */  /*NK*/    &trans       &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
+&trans      &trans  &trans &trans     &trans   &trans      &trans  /* */  &trans    &kp KP_PLUS  &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
+/*NK*/      /*NK*/  &trans &trans     &trans   &mo 3       &trans  /* */  &trans    &trans       &kp DEL   &trans    &trans   /*NK*/    /*NK*/ 
             >;
 
             sensor-bindings = <&rgb_brightness_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -100,13 +100,18 @@
 
         layer_3 {
             display-name = "Layer 3";
-            
+// ------------------------------------------------------------------------------------------------------------
+// | BT_CLR | BT0  | BT1 |  BT2 |  BT3 |  BT4 | /*NK*/ |  | /*NK*/|      |       |       |      |       |       |
+// | UNLOCK |      |     |      |      |      | /*NK*/ |  | /*NK*/|      |       |       |      |       |       |
+// |        |      |     |      |      |      | /*NK*/ |  | /*NK*/|      | PG_DN | PG_UP |      |       |       |
+// |        |EP_ON |EP_OF|EP_TOG|      |      |        |  |       |      |       |       |      |       |       |
+// | /*NK*/ |/*NK*/|     |      |      |      | BT_CLR |  |       |      |       |       |      |/*NK*/ |/*NK*/ |
             bindings = <
-&studio_unlock  &bt BT_SEL 0        &bt BT_SEL 1        &bt BT_SEL 2        &bt BT_SEL 3    &bt BT_SEL 4                /* */            &trans     &trans  &trans  &trans  &trans  &trans
-&trans          &trans              &trans              &trans              &trans          &trans                      /* */            &trans     &trans  &trans  &trans  &trans  &trans
-&trans          &trans              &trans              &trans              &trans          &trans                      /* */            &trans     &trans  &trans  &trans  &trans  &trans
-&trans          &ext_power EP_ON    &ext_power EP_OFF   &ext_power EP_TOG   &trans          &trans          &trans      /* */  &trans    &trans     &trans  &trans  &trans  &trans  &trans
-/*NK*/          /*NK*/              &trans              &trans              &trans          &trans          &bt BT_CLR  /* */  &trans    &trans     &trans  &trans  &trans  /*NK*/  /*NK*/ 
+&bt BT_CLR      &bt BT_SEL 0        &bt BT_SEL 1        &bt BT_SEL 2        &bt BT_SEL 3    &bt BT_SEL 4    /*NK*/      /* */  /*NK*/    &trans     &trans     &trans     &trans  &trans  &trans
+&studio_unlock  &trans              &trans              &trans              &trans          &trans          /*NK*/      /* */  /*NK*/    &trans     &trans     &trans     &trans  &trans  &trans
+&trans          &trans              &trans              &trans              &trans          &trans          /*NK*/      /* */  /*NK*/    &trans     &kp PG_DN  &kp PG_UP  &trans  &trans  &trans
+&trans          &ext_power EP_ON    &ext_power EP_OFF   &ext_power EP_TOG   &trans          &trans          &trans      /* */  &trans    &trans     &trans     &trans     &trans  &trans  &trans
+/*NK*/          /*NK*/              &trans              &trans              &trans          &trans          &bt BT_CLR  /* */  &trans    &trans     &trans     &trans     &trans  /*NK*/  /*NK*/ 
             >;
 
             sensor-bindings = <&rgb_brightness_encoder    &inc_dec_kp C_VOL_DN C_VOL_UP>;
